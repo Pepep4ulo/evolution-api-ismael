@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: evolution-api-ismael
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SERVER_PORT
+        value: 10000
+      - key: DEL_INSTANCE
+        value: false
+      - key: DEL_TEMP_INSTANCES
+        value: true
+      - key: LANGUAGE
+        value: pt-BR
+      - key: LOG_LEVEL
+        value: ERROR
+      - key: STORE_CLEANING_INTERVAL
+        value: 7200000
+      - key: STORE_MESSAGE_UP
+        value: true
+      - key: WEBHOOK_GLOBAL_URL
+        generateValue: true
+      - key: WEBHOOK_GLOBAL_ENABLED
+        value: true
+      - key: WEBHOOK_GLOBAL_WEBHOOK_BY_EVENTS
+        value: false
