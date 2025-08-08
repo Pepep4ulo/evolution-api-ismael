@@ -12,8 +12,9 @@ ENV STORE_MESSAGE_UP=true
 ENV WEBHOOK_GLOBAL_ENABLED=true
 ENV WEBHOOK_GLOBAL_WEBHOOK_BY_EVENTS=false
 
-# Database configuration (using local storage for free tier)
+# Database configuration (disable database for free tier)
 ENV DATABASE_ENABLED=false
+ENV DATABASE_PROVIDER=none
 ENV DATABASE_SAVE_DATA_INSTANCE=false
 ENV DATABASE_SAVE_DATA_NEW_MESSAGE=false
 ENV DATABASE_SAVE_MESSAGE_UPDATE=false
