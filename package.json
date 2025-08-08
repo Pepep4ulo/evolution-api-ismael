@@ -1,16 +1,12 @@
 {
-  "name": "evolution-api-lite", 
-  "version": "3.0.0",
-  "description": "Evolution API Lite - QR Codes Funcionais",
-  "main": "evolution-simple.js",
+  "name": "evolution-api-ismael",
+  "version": "1.0.0",
+  "main": "server.js",
   "scripts": {
-    "start": "node evolution-simple.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }
