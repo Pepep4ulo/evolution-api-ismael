@@ -1,16 +1,19 @@
-FROM node:20-alpine
-WORKDIR /evolution
-# Install Evolution API
-RUN npm install -g @evolution/api
-# Create necessary directories
-RUN mkdir -p /evolution/instances /evolution/store
+FROM atendai/evolution-api:v2.1.1
+
 # Set environment variables
 ENV NODE_ENV=production
-ENV SERVER_PORT=10000
+ENV SERVER_PORT=8080
 ENV DEL_INSTANCE=false
 ENV DEL_TEMP_INSTANCES=true
 ENV LANGUAGE=pt-BR
-# Expose port
-EXPOSE 10000
-# Start the application
-CMD ["evolution-api"]
+ENV LOG_LEVEL=ERROR
+ENV STORE_CLEANING_INTERVAL=7200000
+ENV STORE_MESSAGE_UP=true
+ENV WEBHOOK_GLOBAL_ENABLED=true
+ENV WEBHOOK_GLOBAL_WEBHOOK_BY_EVENTS=false
+
+# Expose port (Render uses 8080 by default)
+EXPOSE 8080
+
+# Start the application (must have CMD for Render)
+CMD ["node", "./dist/src/main.js"]
