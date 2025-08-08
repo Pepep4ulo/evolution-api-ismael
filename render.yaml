@@ -8,7 +8,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: SERVER_PORT
-        value: 10000
+        value: 8080
       - key: DEL_INSTANCE
         value: false
       - key: DEL_TEMP_INSTANCES
