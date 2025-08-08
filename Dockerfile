@@ -1,20 +1,17 @@
-FROM node:20
+# Use the official Evolution API image
+FROM atendai/evolution-api:v2.1.1
 
-WORKDIR /app
-
-# Clone and install Evolution API v2
-RUN apt-get update && apt-get install -y git
-RUN git clone https://github.com/EvolutionAPI/evolution-api.git .
-RUN npm install --force
-RUN npm run build
-
-# Environment variables
-ENV NODE_ENV=production
+# Override environment variables for Render
 ENV SERVER_PORT=8080
+ENV NODE_ENV=production
 
-# Disable database completely
+# Disable all database features
 ENV DATABASE_ENABLED=false
+ENV DATABASE_PROVIDER=postgresql
+ENV DATABASE_CONNECTION_URI=""
+
+# Basic configuration
+ENV DEL_INSTANCE=false
+ENV LANGUAGE=pt-BR
 
 EXPOSE 8080
-
-CMD ["npm", "start"]
